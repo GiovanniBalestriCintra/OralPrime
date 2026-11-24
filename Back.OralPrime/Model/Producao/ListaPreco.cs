@@ -144,6 +144,33 @@ namespace OralPrime.Model.Producao
         } // Fim ListarPorId
 
 
+        // Buscar por descrição
+        public static List<ListaPreco> BuscarPorDescricao(string descricao)
+        {
+            string sql = "CALL sp_BuscarPorDescricaoListaPreco(@Descricao)";
+
+            List<ListaPreco> listaPrecos = new();
+
+            using (var cmd = new MySqlCommand(sql))
+            {
+                cmd.Parameters.AddWithValue("@Descricao", descricao);
+
+                using (MySqlDataReader reader = Banco.ExecutarComRetornoDeDados(cmd))
+                {
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32("id");
+                        string descricaoLista = ValidarCampoString(reader["descricao"]);
+
+                        listaPrecos.Add(new ListaPreco(id, descricaoLista));
+                    }
+                }
+
+                return listaPrecos;
+            }
+        } // Fim BuscarPorDescricao
+
+
     }// Classe
 
 }// NameSpace

@@ -170,6 +170,23 @@ namespace OralPrime.Model.Producao
         } // Fim ListarPorListaPreco
 
 
+        // Consultar valor de um item pelo número dentro da lista de preço
+        public static decimal? ConsultarValor(int listaPrecoId, int numero)
+        {
+            List<ListaPrecoItem> itens = ListarPorListaPreco(listaPrecoId);
+
+            foreach (ListaPrecoItem item in itens)
+            {
+                if (item.Numero == numero)
+                {
+                    return item.Valor;
+                }
+            }
+
+            return null;
+        } // Fim ConsultarValor
+
+
     }// Classe
 
 }// NameSpace
