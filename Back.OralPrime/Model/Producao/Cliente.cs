@@ -70,7 +70,11 @@ namespace OralPrime.Model.Producao
         }
 
 
-        // Inserir
+        /// <summary>
+        /// Insere dados na classe cliente
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <returns></returns>
         public static int Inserir(Cliente cliente)
         {
             // Instrução SQL: Define o comando de inserção (INSERT).
@@ -107,7 +111,11 @@ namespace OralPrime.Model.Producao
 
 
 
-        // Deletar
+        /// <summary>
+        /// Deleta o cliente 
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <returns></returns>
         public static int Deletar(Cliente cliente)
         {
             // String SQL
@@ -124,7 +132,11 @@ namespace OralPrime.Model.Producao
 
 
 
-        // ValidarCampo string
+        /// <summary>
+        /// Valida o campo string
+        /// </summary>
+        /// <param name="campo"></param>
+        /// <returns></returns>
         private static string ValidarCampoString(object campo)
         {
 
@@ -142,6 +154,11 @@ namespace OralPrime.Model.Producao
         }
 
 
+        /// <summary>
+        /// Valida o campo char
+        /// </summary>
+        /// <param name="campo"></param>
+        /// <returns></returns>
         // ValidarCampo string char
         private static char ValidarCampoChar(object campo)
         {
@@ -156,6 +173,11 @@ namespace OralPrime.Model.Producao
         }
 
 
+        /// <summary>
+        /// Valida o campo preenchido
+        /// </summary>
+        /// <param name="campo"></param>
+        /// <returns></returns>
         private static bool CampoPreenchido(object campo)
         {
             return campo != DBNull.Value && campo != null;
@@ -163,7 +185,10 @@ namespace OralPrime.Model.Producao
 
 
 
-        // Listar todos
+        /// <summary>
+        /// Lista todos os clientes
+        /// </summary>
+        /// <returns></returns>
         public static List<Cliente> ListarTodos()
         {
             string sql = "CALL sp_ListarTodosClientes()";
@@ -216,7 +241,11 @@ namespace OralPrime.Model.Producao
 
 
 
-        // Listar por ID
+        /// <summary>
+        /// Lista clientes por ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static Cliente? ListarPorId(int id)
         {
             string sql = "CALL sp_ListarClientePorId(@Id)";
@@ -256,7 +285,11 @@ namespace OralPrime.Model.Producao
 
 
 
-        // Atualizar
+        /// <summary>
+        /// Atualiza o cliente
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <returns></returns>
         public static int Atualizar(Cliente cliente)
         {
 
